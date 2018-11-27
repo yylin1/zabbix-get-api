@@ -1,1 +1,2 @@
-"# zabbix_get_api" 
+"Backup how to use zabbix get api.
+
