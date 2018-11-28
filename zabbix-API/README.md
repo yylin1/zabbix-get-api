@@ -1,2 +1,2 @@
 # How to use? 
-link: https://github.com/yylin1/zabbix-get-api
+link: https://hackmd.io/HswBPw1tRB6llUOYPm-h2g?both
