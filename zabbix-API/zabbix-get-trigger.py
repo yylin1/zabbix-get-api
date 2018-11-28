@@ -41,7 +41,7 @@ class ZabbixTools:
             response = json.loads(result.read())
             result.close()
             #print response['result']
-            #print('\n')
+            print('\n')
             self.authID = response['result']
             return self.authID
 
@@ -77,7 +77,7 @@ class ZabbixTools:
         request = urllib2.Request(self.url, data)
         for key in self.header:
             request.add_header(key, self.header[key])
-            
+
         try:
             result = urllib2.urlopen(request)
         except URLError as e:
@@ -89,12 +89,14 @@ class ZabbixTools:
             issues = response['result']
             content = ''
             if issues:
-                print (issues)
-                print (len(issues))
+                #print (issues)
+                #print (len(issues))
                 for line in issues:
                     #content = content + "%s:%s:%s:%s\n---------------\n" % (line['groups'],line['hosts'],line['description'],str(line['status']))
-                    print ("status %s" % line['status'])
+                    print ("Trigger message list:  [ %s ] view :status %s" % (line['description'],line['status']))
 #                    print ('line print ',line)
+            else:
+                print ("No Trigger load high problem in list.")
             return content
 
 if __name__ == "__main__":
@@ -104,5 +106,5 @@ if __name__ == "__main__":
         content = z.trigger_get()
         print (content)
     #print    content
-    
+
 
